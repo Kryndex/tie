@@ -29,27 +29,27 @@ globalData.questions['bstClosestValue'] = {  // eslint-disable-line dot-notation
 `
   },
   auxiliaryCode: {
-  	python:
+    python:
 `class AuxiliaryCode(object):
-	class TreeNode(object):
-		def __init__(self, x):
-			self.val = x
-			self.left = None
-			self.right = None
+    class TreeNode(object):
+        def __init__(self, x):
+            self.val = x
+            self.left = None
+            self.right = None
 
-	@classmethod
-	def deserialize(cls, data):
-		def constructTree():
-			val = next(vals)
-			if val == '#':
-				return None
-			node = TreeNode(float(val))
-			node.left = constructTree()
-			node.right = constructTree()
-			return node
-		inputs = data.split('|')
-		vals = iter(inputs[0].split())
-		return constructTree(), inputs[1]
+        @classmethod
+        def deserialize(cls, data):
+            def constructTree():
+                val = next(vals)
+                if val == '#':
+                    return None
+                node = TreeNode(float(val))
+                node.left = constructTree()
+                node.right = constructTree()
+                return node
+           inputs = data.split('|')
+           vals = iter(inputs[0].split())
+           return constructTree(), inputs[1]
 `
   },
   tasks: [{
@@ -67,9 +67,8 @@ globalData.questions['bstClosestValue'] = {  // eslint-disable-line dot-notation
     outputFunctionName: null,
     mainFunctionName: 'findClosestValue',
     correctnessTests: [{
-    	input: '2 1 3|2', // numbers before '|' will be constructed as the BST
-                        // number after '|' is the target value 
-    	allowedOutputs: [2]
+      input: '2 1 3|2', 
+      allowedOutputs: [2]
     }],
     buggyOutputTests: [],
     performanceTests: []
