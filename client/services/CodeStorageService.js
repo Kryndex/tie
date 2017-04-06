@@ -63,7 +63,7 @@ tie.factory('CodeStorageService', ['DEFAULT_AUTO_SAVE_SECONDS',
         delete storedCode[language];
         localStorage.setItem(questionId, JSON.stringify(storedCode));
       }
-    }
+    };
     return codeStorageService;
   }
 ]);
