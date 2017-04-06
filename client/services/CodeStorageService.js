@@ -56,6 +56,14 @@ tie.factory('CodeStorageService', ['DEFAULT_AUTO_SAVE_SECONDS',
         return null;
       }
     };
+
+    codeStorageService.resetCode = function(questionId, language) {
+      var storedCode = getObjFromLocalStorage(questionId);
+      if (storedCode) {
+        delete storedCode[language];
+        localStorage.setItem(questionId, JSON.stringify(storedCode));
+      }
+    }
     return codeStorageService;
   }
 ]);
